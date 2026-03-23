@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
-import { ChevronRight, Shield, Globe, TrendingUp, Building2, Scale, FileText, Users, BarChart3, Briefcase, CheckCircle, MapPin, Phone, Mail } from 'lucide-react'
+import { ChevronRight, Shield, Globe, TrendingUp, Building2, Scale, FileText, Users, BarChart3, Briefcase, CheckCircle, MapPin, Phone, Mail, Monitor, Lock, PieChart, Eye } from 'lucide-react'
 import './App.css'
 
 /* ── Scroll Reveal Hook ── */
@@ -42,6 +42,7 @@ function Nav() {
       </a>
       <div className={`nav-links ${mobileOpen ? 'open' : ''}`}>
         <a href="#services" onClick={() => setMobileOpen(false)}>Services</a>
+        <a href="#platform" onClick={() => setMobileOpen(false)}>Plateforme</a>
         <a href="#team" onClick={() => setMobileOpen(false)}>The Firm</a>
         <a href="#monaco" onClick={() => setMobileOpen(false)}>Monaco</a>
         <a href="#perspectives" onClick={() => setMobileOpen(false)}>Perspectives</a>
@@ -61,15 +62,14 @@ function Hero() {
       <div className="hero-bg"></div>
       <div className="hero-content">
         <h1 className="hero-title">
-          Protecting<br />
-          <em>Wealth.</em><br />
-          Building<br />
-          Legacies.
+          The Multi Family Office<br />
+          Platform for<br />
+          <em>Wealth Supervision</em>
         </h1>
-        <p className="hero-subtitle">Empowering Future.</p>
+        <p className="hero-subtitle">Consolidation. Supervision. Reporting — en temps réel depuis Monaco.</p>
         <div className="hero-line"></div>
         <p className="hero-desc">
-          A Monaco-based Multi Family Office dedicated to preserving and growing generational wealth with discretion, expertise, and a long-term vision.
+          FAM Monaco offre aux familles UHNW une plateforme indépendante de supervision patrimoniale, consolidant l'ensemble de vos actifs mondiaux en un seul écran sécurisé.
         </p>
       </div>
     </section>
@@ -82,7 +82,7 @@ function TaglineBar() {
   return (
     <section className="tagline-bar" ref={ref}>
       <p className="tagline-text reveal">
-        "In a complex world, we offer new eyes on how to organise wealth."
+        "Une vision consolidée de votre patrimoine mondial, accessible en temps réel sur app.fam.international"
       </p>
       <div className="tagline-pills reveal reveal-delay-1">
         <span className="pill">Licensed MFO</span>
@@ -110,19 +110,19 @@ function IntroSplit() {
         <div className="stats-grid reveal reveal-delay-3">
           <div className="stat">
             <div className="stat-number">€500M+</div>
-            <div className="stat-label">Assets advised</div>
+            <div className="stat-label">Actifs supervisés</div>
           </div>
           <div className="stat">
-            <div className="stat-number">200+</div>
-            <div className="stat-label">Client families</div>
+            <div className="stat-number">30+</div>
+            <div className="stat-label">Juridictions consolidées</div>
           </div>
           <div className="stat">
-            <div className="stat-number">20+</div>
-            <div className="stat-label">Years experience</div>
+            <div className="stat-number">24/7</div>
+            <div className="stat-label">Accès plateforme</div>
           </div>
           <div className="stat">
             <div className="stat-number">2018</div>
-            <div className="stat-label">Founded in Monaco</div>
+            <div className="stat-label">Fondé à Monaco</div>
           </div>
         </div>
       </div>
@@ -136,20 +136,20 @@ function Services() {
   const services = [
     {
       num: '01',
+      name: 'Wealth Monitoring',
+      pillars: [
+        { title: 'Consolidation', desc: 'Agrégation multi-dépositaires de l\'ensemble de vos actifs financiers, immobiliers et non cotés dans une vue unifiée.' },
+        { title: 'Supervision', desc: 'Suivi indépendant des banques dépositaires, des gérants d\'actifs et reporting de performance consolidé en temps réel.' },
+        { title: 'Reporting', desc: 'Reporting institutionnel personnalisé couvrant toutes les classes d\'actifs, juridictions et entités.' },
+      ],
+    },
+    {
+      num: '02',
       name: 'Wealth Planning',
       pillars: [
         { title: 'Succession & Estate', desc: 'Multi-jurisdictional estate planning, trust structuring, and intergenerational wealth transfer strategies.' },
         { title: 'Tax Advisory', desc: 'Cross-border tax optimisation aligned with OECD standards and CRS compliance frameworks.' },
         { title: 'Governance & Family', desc: 'Family charter drafting, governance frameworks, and next-generation education programmes.' },
-      ],
-    },
-    {
-      num: '02',
-      name: 'Wealth Monitoring',
-      pillars: [
-        { title: 'Portfolio Oversight', desc: 'Independent monitoring of custodian banks, asset managers, and consolidated performance reporting.' },
-        { title: 'Risk Management', desc: 'Scenario analysis, stress testing, and dynamic asset allocation adjusted to evolving market conditions.' },
-        { title: 'Reporting & Analytics', desc: 'Institutional-grade consolidated reporting across all asset classes, jurisdictions, and entities.' },
       ],
     },
     {
@@ -185,6 +185,57 @@ function Services() {
           </div>
         </div>
       ))}
+      <div className="service-platform-highlight reveal">
+        <div className="platform-highlight-icon"><Monitor size={32} /></div>
+        <div className="platform-highlight-content">
+          <h3>app.fam.international — votre patrimoine en temps réel</h3>
+          <div className="platform-highlight-tags">
+            <span>Accès 24/7</span>
+            <span>Multi-custodians</span>
+            <span>Multi-devises</span>
+            <span>Reporting personnalisé</span>
+            <span>Sécurité bancaire</span>
+          </div>
+        </div>
+        <a href="https://app.fam.international" className="platform-highlight-cta" target="_blank" rel="noopener noreferrer">
+          Accéder <ChevronRight size={16} />
+        </a>
+      </div>
+    </section>
+  )
+}
+
+/* ── LA PLATEFORME ── */
+function Platform() {
+  const ref = useReveal()
+  const features = [
+    { icon: <PieChart size={28} />, title: 'Consolidation multi-dépositaires', desc: 'Agrégez l\'ensemble de vos comptes bancaires, portefeuilles et actifs alternatifs dans une interface unique, quel que soit le dépositaire.' },
+    { icon: <TrendingUp size={28} />, title: 'Performance en temps réel', desc: 'Suivez la performance de vos investissements avec des données actualisées en continu, ventilées par classe d\'actifs, devise et juridiction.' },
+    { icon: <BarChart3 size={28} />, title: 'Reporting sur mesure', desc: 'Générez des rapports institutionnels personnalisés — par entité, famille, ou consolidé — exportables à tout moment.' },
+    { icon: <Lock size={28} />, title: 'Accès sécurisé 24/7', desc: 'Connectez-vous à tout moment depuis n\'importe quel appareil avec un chiffrement de niveau bancaire et une authentification multi-facteurs.' },
+  ]
+
+  return (
+    <section className="platform" id="platform" ref={ref}>
+      <div className="platform-header reveal">
+        <span className="section-label">La Plateforme</span>
+        <h2 className="platform-title">app.fam.international</h2>
+        <p className="platform-subtitle">Votre patrimoine mondial, unifié en un seul écran</p>
+      </div>
+      <div className="platform-grid">
+        {features.map((f, i) => (
+          <div className={`platform-card reveal reveal-delay-${i + 1}`} key={i}>
+            <div className="platform-card-icon">{f.icon}</div>
+            <h3>{f.title}</h3>
+            <p>{f.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div className="platform-cta-wrap reveal">
+        <a href="https://app.fam.international" className="cta-btn" target="_blank" rel="noopener noreferrer">
+          Accéder à la plateforme
+        </a>
+      </div>
     </section>
   )
 }
@@ -365,8 +416,8 @@ function Footer() {
         <div>
           <h4>Services</h4>
           <ul>
-            <li><a href="#services">Wealth Planning</a></li>
             <li><a href="#services">Wealth Monitoring</a></li>
+            <li><a href="#services">Wealth Planning</a></li>
             <li><a href="#services">Deal Structuring</a></li>
           </ul>
         </div>
@@ -387,6 +438,13 @@ function Footer() {
           </ul>
         </div>
       </div>
+      <div className="footer-middle">
+        <h4>Client Portal</h4>
+        <a href="https://app.fam.international" className="footer-platform-link" target="_blank" rel="noopener noreferrer">
+          <Monitor size={16} />
+          app.fam.international
+        </a>
+      </div>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} FAM Monaco. All rights reserved.</span>
         <span>
@@ -406,6 +464,7 @@ function App() {
       <TaglineBar />
       <IntroSplit />
       <Services />
+      <Platform />
       <PhotoBreak />
       <Team />
       <Monaco />
